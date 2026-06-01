@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — QuillVerse</title>
+  <meta name="description" content="Send a letter to QuillVerse — we read every word.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Botanical corner decorations -->
+  <div class="botanicals" aria-hidden="true">
+    <svg class="bot bot-tl" viewBox="0 0 220 270" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18,12 C22,46 34,88 52,122 C68,152 80,178 82,228" stroke="#b5531e" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+      <path d="M35,58 C20,50 8,38 4,22" stroke="#b5531e" stroke-width="0.9" stroke-linecap="round" fill="none"/>
+      <path d="M4,22 C-4,7 10,-2 19,10 C26,20 20,32 4,22Z" fill="#c4857a" fill-opacity="0.52"/>
+      <path d="M42,85 C56,74 68,66 76,52" stroke="#b5531e" stroke-width="0.9" stroke-linecap="round" fill="none"/>
+      <path d="M76,52 C88,37 103,44 96,59 C90,70 80,58 76,52Z" fill="#d4956a" fill-opacity="0.46"/>
+      <path d="M44,108 C30,100 22,87 31,79 C40,71 54,82 44,108Z" fill="#c4857a" fill-opacity="0.48"/>
+      <path d="M62,148 C76,138 91,134 102,122" stroke="#b5531e" stroke-width="0.9" stroke-linecap="round" fill="none"/>
+      <path d="M102,122 C115,107 130,114 122,129 C116,139 104,127 102,122Z" fill="#b5531e" fill-opacity="0.36"/>
+      <path d="M52,122 C46,110 51,98 60,103 C67,107 62,118 52,122Z" fill="#d4956a" fill-opacity="0.42"/>
+      <circle cx="82" cy="228" r="4.5" stroke="#b5531e" stroke-width="1.1" fill="none"/>
+      <circle cx="82" cy="228" r="2.2" fill="#b5531e" fill-opacity="0.48"/>
+      <circle cx="88" cy="216" r="3" stroke="#b5531e" stroke-width="0.8" fill="none"/>
+      <path d="M70,175 C80,168 90,164 96,155" stroke="#b5531e" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+      <path d="M96,155 C104,143 116,148 111,160 C107,169 98,160 96,155Z" fill="#c4857a" fill-opacity="0.38"/>
+    </svg>
+    <svg class="bot bot-br" viewBox="0 0 220 270" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18,12 C22,46 34,88 52,122 C68,152 80,178 82,228" stroke="#b5531e" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+      <path d="M35,58 C20,50 8,38 4,22" stroke="#b5531e" stroke-width="0.9" stroke-linecap="round" fill="none"/>
+      <path d="M4,22 C-4,7 10,-2 19,10 C26,20 20,32 4,22Z" fill="#c4857a" fill-opacity="0.52"/>
+      <path d="M42,85 C56,74 68,66 76,52" stroke="#b5531e" stroke-width="0.9" stroke-linecap="round" fill="none"/>
+      <path d="M76,52 C88,37 103,44 96,59 C90,70 80,58 76,52Z" fill="#d4956a" fill-opacity="0.46"/>
+      <path d="M44,108 C30,100 22,87 31,79 C40,71 54,82 44,108Z" fill="#c4857a" fill-opacity="0.48"/>
+      <path d="M62,148 C76,138 91,134 102,122" stroke="#b5531e" stroke-width="0.9" stroke-linecap="round" fill="none"/>
+      <path d="M102,122 C115,107 130,114 122,129 C116,139 104,127 102,122Z" fill="#b5531e" fill-opacity="0.36"/>
+      <path d="M52,122 C46,110 51,98 60,103 C67,107 62,118 52,122Z" fill="#d4956a" fill-opacity="0.42"/>
+      <circle cx="82" cy="228" r="4.5" stroke="#b5531e" stroke-width="1.1" fill="none"/>
+      <circle cx="82" cy="228" r="2.2" fill="#b5531e" fill-opacity="0.48"/>
+      <circle cx="88" cy="216" r="3" stroke="#b5531e" stroke-width="0.8" fill="none"/>
+      <path d="M70,175 C80,168 90,164 96,155" stroke="#b5531e" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+      <path d="M96,155 C104,143 116,148 111,160 C107,169 98,160 96,155Z" fill="#c4857a" fill-opacity="0.38"/>
+    </svg>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="site-nav" role="navigation" aria-label="Main">
+    <a href="index.html" class="nav-logo" aria-label="QuillVerse home">
+      <svg class="logo-quill" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 4C20 4 14 6 10 12C8 15 7 18 7 20" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M20 4C18 8 16 10 12 13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M7 20L5 22" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M10 12C9 14 7.5 17 7 20" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+      </svg>
+      <span class="logo-wordmark">Quill<span>Verse</span></span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="contact.html" class="nav-link" aria-current="page">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main content -->
+  <main class="contact-page">
+
+    <header class="contact-header">
+      <span class="contact-eyebrow">Write to us</span>
+      <h1 class="contact-title">Send a Letter</h1>
+      <p class="contact-epigraph">Words are the leaves of the mind's tree.</p>
+    </header>
+
+    <div class="contact-card card">
+
+      <form
+        class="contact-form"
+        name="contact"
+        method="POST"
+        netlify
+        novalidate
+        id="contactForm"
+      >
+        <input type="hidden" name="form-name" value="contact">
+
+        <div class="form-group">
+          <label class="form-label" for="name">Your name</label>
+          <input
+            class="form-input"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="How shall we address you?"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Your email</label>
+          <input
+            class="form-input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Where may we reply?"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Your message</label>
+          <textarea
+            class="form-textarea"
+            id="message"
+            name="message"
+            placeholder="Tell us what moves you..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-footer">
+          <button class="btn-send" type="submit">Send Letter</button>
+        </div>
+
+      </form>
+
+      <!-- Success message (shown after JS-intercepted submit) -->
+      <div class="form-success" id="formSuccess" aria-live="polite" role="status">
+        <span class="success-glyph" aria-hidden="true">&#10022;</span>
+        <p class="success-text">
+          Your letter has arrived.<br>
+          <em>We will read it carefully.</em>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <span class="footer-copy">&copy; 2026 QuillVerse Poetry</span>
+    <a href="index.html" class="footer-cta">Read a poem</a>
+  </footer>
+
+  <script>
+    // Graceful enhancement: show inline success if JS available,
+    // otherwise the form submits naturally to Netlify.
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('formSuccess');
+
+    if (form && success) {
+      form.addEventListener('submit', function (e) {
+        // Only intercept if all fields are filled
+        const name = form.querySelector('#name').value.trim();
+        const email = form.querySelector('#email').value.trim();
+        const message = form.querySelector('#message').value.trim();
+
+        if (!name || !email || !message) return; // let native validation handle
+
+        e.preventDefault();
+
+        const data = new FormData(form);
+
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data).toString(),
+        })
+          .then(() => {
+            form.style.display = 'none';
+            success.classList.add('visible');
+          })
+          .catch(() => {
+            // Fall back to native submission on fetch error
+            form.submit();
+          });
+      });
+    }
+  </script>
+
+</body>
+</html>

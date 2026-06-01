@@ -1,0 +1,501 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Josefin+Sans:wght@300;400;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --parchment:    #f4ece0;
+  --parchment-2:  #ead9c2;
+  --parchment-3:  #e0ceae;
+  --sienna:       #b5531e;
+  --sienna-light: #cb7040;
+  --amber:        #c2854a;
+  --sand:         #dfc09a;
+  --mahogany:     #3a1e0c;
+  --espresso:     #2c1c10;
+  --rose:         #c07870;
+  --shadow:       rgba(58, 30, 12, 0.14);
+  --border:       #c5a475;
+  --border-light: #d9bd97;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background-color: var(--parchment);
+  color: var(--espresso);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Grain texture for paper feel */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.038;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ─── NAVIGATION ─────────────────────────────────── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.15rem 3rem;
+  background: var(--parchment);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.logo-quill {
+  width: 22px;
+  height: 22px;
+  color: var(--sienna);
+  flex-shrink: 0;
+}
+
+.logo-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--mahogany);
+}
+
+.logo-wordmark span {
+  color: var(--sienna);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--espresso);
+  position: relative;
+  padding-bottom: 3px;
+  transition: color 0.25s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--sienna);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover            { color: var(--sienna); }
+.nav-link:hover::after     { width: 100%; }
+.nav-link[aria-current]::after { width: 100%; }
+.nav-link[aria-current]    { color: var(--sienna); }
+
+/* ─── BOTANICAL CORNER DECORATIONS ───────────────── */
+.botanicals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bot { position: absolute; }
+.bot-tl { top: 55px;  left: -8px;  width: 210px; opacity: 0.42; }
+.bot-br { bottom: 48px; right: -8px; width: 230px; opacity: 0.38; transform: rotate(180deg); }
+.bot-tr { top: 55px;  right: -8px; width: 170px; opacity: 0.28; transform: scaleX(-1) rotate(-10deg); }
+
+/* ─── SHARED CARD ────────────────────────────────── */
+.card {
+  background: linear-gradient(158deg, var(--parchment) 0%, var(--parchment-2) 100%);
+  border: 1px solid var(--border);
+  position: relative;
+  box-shadow:
+    0 2px 6px var(--shadow),
+    0 10px 30px var(--shadow),
+    9px 9px 0 var(--parchment-2),
+    10px 10px 0 var(--border);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 11px;
+  border: 1px solid var(--border-light);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ─── SITE FOOTER ────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--border-light);
+  padding: 1.35rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-copy {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.footer-cta {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sienna);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.footer-cta:hover { opacity: 0.65; }
+
+/* ─── POEM PAGE ──────────────────────────────────── */
+.poem-page {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4.5rem 2rem 5rem;
+}
+
+.poem-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--sienna);
+  text-align: center;
+  margin-bottom: 1.6rem;
+  animation: fadeSlideUp 0.5s ease 0.05s both;
+}
+
+.poem-card {
+  max-width: 600px;
+  width: 100%;
+  padding: 3.8rem 4.5rem;
+  animation: fadeSlideUp 0.7s ease 0.15s both;
+}
+
+.poem-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--mahogany);
+  text-align: center;
+  line-height: 1;
+  margin-bottom: 0.7rem;
+}
+
+.poem-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.meta-rule {
+  height: 1px;
+  width: 2.8rem;
+  background: var(--amber);
+  opacity: 0.7;
+}
+
+.meta-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.poem-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.9rem;
+}
+
+.stanza p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.14rem;
+  font-style: italic;
+  line-height: 2.05;
+  color: var(--espresso);
+  letter-spacing: 0.01em;
+}
+
+/* Drop cap */
+.stanza:first-child p:first-child::first-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  font-weight: 600;
+  font-style: normal;
+  float: left;
+  line-height: 0.72;
+  margin-right: 0.08em;
+  margin-top: 0.08em;
+  color: var(--sienna);
+}
+
+.poem-ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  justify-content: center;
+  margin: 2.6rem 0 1.8rem;
+}
+
+.ornament-gem {
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg);
+  background: var(--sienna);
+  opacity: 0.45;
+}
+
+.ornament-rule {
+  height: 1px;
+  width: 3.5rem;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+}
+
+.poem-attribution {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--amber);
+  text-align: right;
+  letter-spacing: 0.04em;
+}
+
+/* ─── CONTACT PAGE ───────────────────────────────── */
+.contact-page {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4.5rem 2rem 5rem;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 2.8rem;
+  animation: fadeSlideUp 0.5s ease 0.05s both;
+}
+
+.contact-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--sienna);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.contact-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.7rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--mahogany);
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+
+.contact-epigraph {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--amber);
+  letter-spacing: 0.02em;
+}
+
+.contact-card {
+  max-width: 520px;
+  width: 100%;
+  padding: 3.5rem 4rem;
+  animation: fadeSlideUp 0.7s ease 0.15s both;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.form-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--amber);
+  letter-spacing: 0.04em;
+  transition: color 0.25s;
+}
+
+.form-group:focus-within .form-label {
+  color: var(--sienna);
+}
+
+.form-input,
+.form-textarea {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.08rem;
+  color: var(--espresso);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 0.45rem 0 0.45rem;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.25s;
+  appearance: none;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-bottom-color: var(--sienna);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--sand);
+  font-style: italic;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 108px;
+  line-height: 1.85;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.2rem;
+}
+
+.btn-send {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--parchment);
+  background: var(--sienna);
+  border: none;
+  padding: 0.9rem 2.4rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s, transform 0.15s, box-shadow 0.25s;
+  box-shadow: 3px 3px 0 var(--mahogany);
+}
+
+.btn-send::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
+  pointer-events: none;
+}
+
+.btn-send:hover {
+  background: var(--mahogany);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--sienna);
+}
+
+.btn-send:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 var(--mahogany);
+}
+
+/* Success message */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 1.5rem 0 0.5rem;
+}
+
+.form-success.visible {
+  display: block;
+  animation: fadeSlideUp 0.5s ease both;
+}
+
+.success-glyph {
+  color: var(--sienna);
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.success-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--amber);
+  line-height: 1.7;
+}
+
+/* ─── ANIMATIONS ─────────────────────────────────── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 640px) {
+  .site-nav { padding: 1rem 1.3rem; }
+  .poem-card,
+  .contact-card { padding: 2.4rem 1.8rem; }
+  .poem-title  { font-size: 2.1rem; }
+  .contact-title { font-size: 2rem; }
+  .site-footer { padding: 1.2rem 1.3rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  .bot-br, .bot-tr { display: none; }
+  .bot-tl { width: 150px; opacity: 0.3; }
+}
